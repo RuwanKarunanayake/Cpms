@@ -1,0 +1,115 @@
+
+<div *ngIf="recording">
+    <h2><span>Recording</span> {{recording.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Ferbrile</span></dt>
+        <dd>
+            <span>{{recording.ferbrile}}</span>
+        </dd>
+        <dt><span>Pillar</span></dt>
+        <dd>
+            <span>{{recording.pillar}}</span>
+        </dd>
+        <dt><span>Dispensys</span></dt>
+        <dd>
+            <span>{{recording.dispensys}}</span>
+        </dd>
+        <dt><span>R R</span></dt>
+        <dd>
+            <span>{{recording.rR}}</span>
+        </dd>
+        <dt><span>Clear Lungs</span></dt>
+        <dd>
+            <span>{{recording.clearLungs}}</span>
+        </dd>
+        <dt><span>Ronchi</span></dt>
+        <dd>
+            <span>{{recording.ronchi}}</span>
+        </dd>
+        <dt><span>Crackles</span></dt>
+        <dd>
+            <span>{{recording.crackles}}</span>
+        </dd>
+        <dt><span>Other RS</span></dt>
+        <dd>
+            <span>{{recording.otherRS}}</span>
+        </dd>
+        <dt><span>H R</span></dt>
+        <dd>
+            <span>{{recording.hR}}</span>
+        </dd>
+        <dt><span>Regular</span></dt>
+        <dd>
+            <span>{{recording.regular}}</span>
+        </dd>
+        <dt><span>Murmurs</span></dt>
+        <dd>
+            <span>{{recording.murmurs}}</span>
+        </dd>
+        <dt><span>Other CVS</span></dt>
+        <dd>
+            <span>{{recording.otherCVS}}</span>
+        </dd>
+        <dt><span>Soft Abdomen</span></dt>
+        <dd>
+            <span>{{recording.softAbdomen}}</span>
+        </dd>
+        <dt><span>Tense</span></dt>
+        <dd>
+            <span>{{recording.tense}}</span>
+        </dd>
+        <dt><span>Tender</span></dt>
+        <dd>
+            <span>{{recording.tender}}</span>
+        </dd>
+        <dt><span>None Tender</span></dt>
+        <dd>
+            <span>{{recording.noneTender}}</span>
+        </dd>
+        <dt><span>Other Abdomen</span></dt>
+        <dd>
+            <span>{{recording.otherAbdomen}}</span>
+        </dd>
+        <dt><span>Neurology</span></dt>
+        <dd>
+            <span>{{recording.neurology}}</span>
+        </dd>
+        <dt><span>Other Systems</span></dt>
+        <dd>
+            <span>{{recording.otherSystems}}</span>
+        </dd>
+        <dt><span>Rec No</span></dt>
+        <dd>
+            <span>{{recording.recNo}}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{recording.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{recording.user?.login}}
+        </dd>
+        <dt><span>Clinic</span></dt>
+        <dd>
+            <div *ngIf="recording.clinic">
+                <a [routerLink]="['/clinic', recording.clinic?.id]">{{recording.clinic?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'recording/'+ recording.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

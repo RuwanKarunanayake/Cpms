@@ -1,0 +1,81 @@
+
+<div *ngIf="medicalHistory">
+    <h2><span>Medical History</span> {{medicalHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Diabates</span></dt>
+        <dd>
+            <span>{{medicalHistory.diabates}}</span>
+        </dd>
+        <dt><span>Hypertension</span></dt>
+        <dd>
+            <span>{{medicalHistory.hypertension}}</span>
+        </dd>
+        <dt><span>Ihd</span></dt>
+        <dd>
+            <span>{{medicalHistory.ihd}}</span>
+        </dd>
+        <dt><span>Ba</span></dt>
+        <dd>
+            <span>{{medicalHistory.ba}}</span>
+        </dd>
+        <dt><span>Ckd</span></dt>
+        <dd>
+            <span>{{medicalHistory.ckd}}</span>
+        </dd>
+        <dt><span>Epilepsy</span></dt>
+        <dd>
+            <span>{{medicalHistory.epilepsy}}</span>
+        </dd>
+        <dt><span>Other Past</span></dt>
+        <dd>
+            <span>{{medicalHistory.otherPast}}</span>
+        </dd>
+        <dt><span>Past Surgical</span></dt>
+        <dd>
+            <span>{{medicalHistory.pastSurgical}}</span>
+        </dd>
+        <dt><span>Past Allergy</span></dt>
+        <dd>
+            <span>{{medicalHistory.pastAllergy}}</span>
+        </dd>
+        <dt><span>Past Drug</span></dt>
+        <dd>
+            <span>{{medicalHistory.pastDrug}}</span>
+        </dd>
+        <dt><span>Past Family</span></dt>
+        <dd>
+            <span>{{medicalHistory.pastFamily}}</span>
+        </dd>
+        <dt><span>Smoke</span></dt>
+        <dd>
+            <span>{{medicalHistory.smoke}}</span>
+        </dd>
+        <dt><span>Alchohol</span></dt>
+        <dd>
+            <span>{{medicalHistory.alchohol}}</span>
+        </dd>
+        <dt><span>Other History</span></dt>
+        <dd>
+            <span>{{medicalHistory.otherHistory}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{medicalHistory.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'medical-history/'+ medicalHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Recording.
+    -->
+    <changeSet id="20170516050356-1" author="jhipster">
+        <createTable tableName="recording">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ferbrile" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="pillar" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="dispensys" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="r_r" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="clear_lungs" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="ronchi" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="crackles" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="other_rs" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="h_r" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="regular" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="murmurs" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="other_cvs" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="soft_abdomen" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="tense" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="tender" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="none_tender" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="other_abdomen" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="neurology" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="other_systems" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="rec_no" type="varchar(15)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="date" type="date">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="clinic_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Investigation.
+    -->
+    <changeSet id="20170516054316-1" author="jhipster">
+        <createTable tableName="investigation">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="f_bc" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="b_v" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="s_e" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="s_cv" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="l_ft" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="lipid_profile" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="f_bs" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="p_pbs" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="blood_test_completed" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="u_fr" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="urine_test_completed" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="culture" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="culture_test_completed" type="bit">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="other" type="clob">
+                <constraints nullable="true" />
+            </column>
+            <column name="recording_id" type="bigint">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

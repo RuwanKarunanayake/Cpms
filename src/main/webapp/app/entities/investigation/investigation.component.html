@@ -1,0 +1,88 @@
+<div>
+    <h2>
+        <span>Investigations</span>
+        <button class="btn btn-primary float-right create-investigation" [routerLink]="['/', { outlets: { popup: ['investigation-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Investigation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="investigations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fBC"><span>FBC</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bV"><span>BV</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sE"><span>SE</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sCV"><span>SCV</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lFT"><span>LFT</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lipidProfile"><span>Lipid Profile</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fBS"><span>FBS</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pPBS"><span>PPBS</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bloodTestCompleted"><span>Blood Test Completed</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="uFR"><span>UFR</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="urineTestCompleted"><span>Urine Test Completed</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="culture"><span>Culture</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cultureTestCompleted"><span>Culture Test Completed</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="other"><span>Other</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="recording.recNo"><span>Recording</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let investigation of investigations ;trackBy: trackId">
+                <td><a [routerLink]="['../investigation', investigation.id ]">{{investigation.id}}</a></td>
+                <td>{{investigation.fBC}}</td>
+                <td>{{investigation.bV}}</td>
+                <td>{{investigation.sE}}</td>
+                <td>{{investigation.sCV}}</td>
+                <td>{{investigation.lFT}}</td>
+                <td>{{investigation.lipidProfile}}</td>
+                <td>{{investigation.fBS}}</td>
+                <td>{{investigation.pPBS}}</td>
+                <td>{{investigation.bloodTestCompleted}}</td>
+                <td>{{investigation.uFR}}</td>
+                <td>{{investigation.urineTestCompleted}}</td>
+                <td>{{investigation.culture}}</td>
+                <td>{{investigation.cultureTestCompleted}}</td>
+                <td>{{investigation.other}}</td>
+                <td>
+                    <div *ngIf="investigation.recording">
+                        <a [routerLink]="['../recording', investigation.recording?.id ]" >{{investigation.recording?.recNo}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../investigation', investigation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'investigation/'+ investigation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'investigation/'+ investigation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

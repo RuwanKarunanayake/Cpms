@@ -1,0 +1,201 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myInvestigationLabel">Create or edit a Investigation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!investigation.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="investigation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fBC">F BC</label>
+            <input type="checkbox" class="form-control" name="fBC" id="field_fBC"
+                [(ngModel)]="investigation.fBC"
+             />
+            <div [hidden]="!(editForm.controls.fBC?.dirty && editForm.controls.fBC?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fBC?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_bV">B V</label>
+            <input type="checkbox" class="form-control" name="bV" id="field_bV"
+                [(ngModel)]="investigation.bV"
+             />
+            <div [hidden]="!(editForm.controls.bV?.dirty && editForm.controls.bV?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.bV?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_sE">S E</label>
+            <input type="checkbox" class="form-control" name="sE" id="field_sE"
+                [(ngModel)]="investigation.sE"
+             />
+            <div [hidden]="!(editForm.controls.sE?.dirty && editForm.controls.sE?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sE?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_sCV">S CV</label>
+            <input type="checkbox" class="form-control" name="sCV" id="field_sCV"
+                [(ngModel)]="investigation.sCV"
+             />
+            <div [hidden]="!(editForm.controls.sCV?.dirty && editForm.controls.sCV?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sCV?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lFT">L FT</label>
+            <input type="checkbox" class="form-control" name="lFT" id="field_lFT"
+                [(ngModel)]="investigation.lFT"
+             />
+            <div [hidden]="!(editForm.controls.lFT?.dirty && editForm.controls.lFT?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lFT?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lipidProfile">Lipid Profile</label>
+            <input type="checkbox" class="form-control" name="lipidProfile" id="field_lipidProfile"
+                [(ngModel)]="investigation.lipidProfile"
+             />
+            <div [hidden]="!(editForm.controls.lipidProfile?.dirty && editForm.controls.lipidProfile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lipidProfile?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fBS">F BS</label>
+            <input type="checkbox" class="form-control" name="fBS" id="field_fBS"
+                [(ngModel)]="investigation.fBS"
+             />
+            <div [hidden]="!(editForm.controls.fBS?.dirty && editForm.controls.fBS?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fBS?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pPBS">P PBS</label>
+            <input type="checkbox" class="form-control" name="pPBS" id="field_pPBS"
+                [(ngModel)]="investigation.pPBS"
+             />
+            <div [hidden]="!(editForm.controls.pPBS?.dirty && editForm.controls.pPBS?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.pPBS?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_bloodTestCompleted">Blood Test Completed</label>
+            <input type="checkbox" class="form-control" name="bloodTestCompleted" id="field_bloodTestCompleted"
+                [(ngModel)]="investigation.bloodTestCompleted"
+             />
+            <div [hidden]="!(editForm.controls.bloodTestCompleted?.dirty && editForm.controls.bloodTestCompleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.bloodTestCompleted?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_uFR">U FR</label>
+            <input type="checkbox" class="form-control" name="uFR" id="field_uFR"
+                [(ngModel)]="investigation.uFR"
+             />
+            <div [hidden]="!(editForm.controls.uFR?.dirty && editForm.controls.uFR?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.uFR?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_urineTestCompleted">Urine Test Completed</label>
+            <input type="checkbox" class="form-control" name="urineTestCompleted" id="field_urineTestCompleted"
+                [(ngModel)]="investigation.urineTestCompleted"
+             />
+            <div [hidden]="!(editForm.controls.urineTestCompleted?.dirty && editForm.controls.urineTestCompleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.urineTestCompleted?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_culture">Culture</label>
+            <input type="checkbox" class="form-control" name="culture" id="field_culture"
+                [(ngModel)]="investigation.culture"
+             />
+            <div [hidden]="!(editForm.controls.culture?.dirty && editForm.controls.culture?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.culture?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_cultureTestCompleted">Culture Test Completed</label>
+            <input type="checkbox" class="form-control" name="cultureTestCompleted" id="field_cultureTestCompleted"
+                [(ngModel)]="investigation.cultureTestCompleted"
+             />
+            <div [hidden]="!(editForm.controls.cultureTestCompleted?.dirty && editForm.controls.cultureTestCompleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cultureTestCompleted?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_other">Other</label>
+            <textarea class="form-control" name="other" id="field_other"
+                [(ngModel)]="investigation.other"  ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="field_recording">Recording</label>
+            <select class="form-control" id="field_recording" name="recording" [(ngModel)]="investigation.recording" required>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="recordingOption.id === investigation.recording?.id ? investigation.recording : recordingOption" *ngFor="let recordingOption of recordings; trackBy: trackRecordingById">{{recordingOption.recNo}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.recording?.dirty && editForm.controls.recording?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.recording?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,83 @@
+
+<div *ngIf="investigation">
+    <h2><span>Investigation</span> {{investigation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>F BC</span></dt>
+        <dd>
+            <span>{{investigation.fBC}}</span>
+        </dd>
+        <dt><span>B V</span></dt>
+        <dd>
+            <span>{{investigation.bV}}</span>
+        </dd>
+        <dt><span>S E</span></dt>
+        <dd>
+            <span>{{investigation.sE}}</span>
+        </dd>
+        <dt><span>S CV</span></dt>
+        <dd>
+            <span>{{investigation.sCV}}</span>
+        </dd>
+        <dt><span>L FT</span></dt>
+        <dd>
+            <span>{{investigation.lFT}}</span>
+        </dd>
+        <dt><span>Lipid Profile</span></dt>
+        <dd>
+            <span>{{investigation.lipidProfile}}</span>
+        </dd>
+        <dt><span>F BS</span></dt>
+        <dd>
+            <span>{{investigation.fBS}}</span>
+        </dd>
+        <dt><span>P PBS</span></dt>
+        <dd>
+            <span>{{investigation.pPBS}}</span>
+        </dd>
+        <dt><span>Blood Test Completed</span></dt>
+        <dd>
+            <span>{{investigation.bloodTestCompleted}}</span>
+        </dd>
+        <dt><span>U FR</span></dt>
+        <dd>
+            <span>{{investigation.uFR}}</span>
+        </dd>
+        <dt><span>Urine Test Completed</span></dt>
+        <dd>
+            <span>{{investigation.urineTestCompleted}}</span>
+        </dd>
+        <dt><span>Culture</span></dt>
+        <dd>
+            <span>{{investigation.culture}}</span>
+        </dd>
+        <dt><span>Culture Test Completed</span></dt>
+        <dd>
+            <span>{{investigation.cultureTestCompleted}}</span>
+        </dd>
+        <dt><span>Other</span></dt>
+        <dd>
+            <span>{{investigation.other}}</span>
+        </dd>
+        <dt><span>Recording</span></dt>
+        <dd>
+            <div *ngIf="investigation.recording">
+                <a [routerLink]="['/recording', investigation.recording?.id]">{{investigation.recording?.recNo}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'investigation/'+ investigation.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

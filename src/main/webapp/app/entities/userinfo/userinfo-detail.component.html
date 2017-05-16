@@ -1,0 +1,49 @@
+
+<div *ngIf="userinfo">
+    <h2><span>Userinfo</span> {{userinfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Reg No</span></dt>
+        <dd>
+            <span>{{userinfo.regNo}}</span>
+        </dd>
+        <dt><span>Dob</span></dt>
+        <dd>
+            <span>{{userinfo.dob | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Address</span></dt>
+        <dd>
+            <span>{{userinfo.address}}</span>
+        </dd>
+        <dt><span>Gender</span></dt>
+        <dd>
+            <span>{{userinfo.gender}}</span>
+        </dd>
+        <dt><span>Telephone</span></dt>
+        <dd>
+            <span>{{userinfo.telephone}}</span>
+        </dd>
+        <dt><span>Mobile</span></dt>
+        <dd>
+            <span>{{userinfo.mobile}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{userinfo.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'userinfo/'+ userinfo.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

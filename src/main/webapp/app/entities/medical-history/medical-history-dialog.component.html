@@ -1,0 +1,166 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMedicalHistoryLabel">Create or edit a Medical History</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!medicalHistory.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="medicalHistory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_diabates">Diabates</label>
+            <input type="checkbox" class="form-control" name="diabates" id="field_diabates"
+                [(ngModel)]="medicalHistory.diabates"
+             />
+            <div [hidden]="!(editForm.controls.diabates?.dirty && editForm.controls.diabates?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.diabates?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_hypertension">Hypertension</label>
+            <input type="checkbox" class="form-control" name="hypertension" id="field_hypertension"
+                [(ngModel)]="medicalHistory.hypertension"
+             />
+            <div [hidden]="!(editForm.controls.hypertension?.dirty && editForm.controls.hypertension?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hypertension?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ihd">Ihd</label>
+            <input type="checkbox" class="form-control" name="ihd" id="field_ihd"
+                [(ngModel)]="medicalHistory.ihd"
+             />
+            <div [hidden]="!(editForm.controls.ihd?.dirty && editForm.controls.ihd?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ihd?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ba">Ba</label>
+            <input type="checkbox" class="form-control" name="ba" id="field_ba"
+                [(ngModel)]="medicalHistory.ba"
+             />
+            <div [hidden]="!(editForm.controls.ba?.dirty && editForm.controls.ba?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ba?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ckd">Ckd</label>
+            <input type="checkbox" class="form-control" name="ckd" id="field_ckd"
+                [(ngModel)]="medicalHistory.ckd"
+             />
+            <div [hidden]="!(editForm.controls.ckd?.dirty && editForm.controls.ckd?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ckd?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_epilepsy">Epilepsy</label>
+            <input type="checkbox" class="form-control" name="epilepsy" id="field_epilepsy"
+                [(ngModel)]="medicalHistory.epilepsy"
+             />
+            <div [hidden]="!(editForm.controls.epilepsy?.dirty && editForm.controls.epilepsy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.epilepsy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_otherPast">Other Past</label>
+            <textarea class="form-control" name="otherPast" id="field_otherPast"
+                [(ngModel)]="medicalHistory.otherPast"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pastSurgical">Past Surgical</label>
+            <textarea class="form-control" name="pastSurgical" id="field_pastSurgical"
+                [(ngModel)]="medicalHistory.pastSurgical"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pastAllergy">Past Allergy</label>
+            <textarea class="form-control" name="pastAllergy" id="field_pastAllergy"
+                [(ngModel)]="medicalHistory.pastAllergy"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pastDrug">Past Drug</label>
+            <textarea class="form-control" name="pastDrug" id="field_pastDrug"
+                [(ngModel)]="medicalHistory.pastDrug"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pastFamily">Past Family</label>
+            <textarea class="form-control" name="pastFamily" id="field_pastFamily"
+                [(ngModel)]="medicalHistory.pastFamily"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_smoke">Smoke</label>
+            <input type="checkbox" class="form-control" name="smoke" id="field_smoke"
+                [(ngModel)]="medicalHistory.smoke"
+             />
+            <div [hidden]="!(editForm.controls.smoke?.dirty && editForm.controls.smoke?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.smoke?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_alchohol">Alchohol</label>
+            <input type="checkbox" class="form-control" name="alchohol" id="field_alchohol"
+                [(ngModel)]="medicalHistory.alchohol"
+             />
+            <div [hidden]="!(editForm.controls.alchohol?.dirty && editForm.controls.alchohol?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.alchohol?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_otherHistory">Other History</label>
+            <textarea class="form-control" name="otherHistory" id="field_otherHistory"
+                [(ngModel)]="medicalHistory.otherHistory"  ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="medicalHistory.user"  required>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === medicalHistory.user?.id ? medicalHistory.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.user?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
